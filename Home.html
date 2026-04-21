@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Mauritania | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-[#A5D6A7] selection:text-[#2E7D32]">
+    <canvas id="natureCanvas" class="fixed inset-0 z-0 w-full h-full"></canvas>
+    <div class="relative z-10 pointer-events-none flex min-h-screen flex-col">
+        <nav class="fixed top-0 z-50 w-full transition-all duration-300" id="navbar">
+            <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+                <a href="Home.html" class="pointer-events-auto flex items-center gap-2 text-2xl font-bold tracking-tighter text-[#2E7D32] drop-shadow-md serif-font">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"></path>
+                    </svg>
+                    Discover Mauritania
+                </a>
+                <div class="pointer-events-auto flex flex-wrap items-center gap-3 rounded-full border border-white/50 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-md md:gap-8 md:px-6">
+                    <a href="Home.html" class="text-sm font-semibold text-[#2E7D32] transition-colors">Home</a>
+                    <a href="places.html" class="text-sm font-semibold hover:text-[#2E7D32] transition-colors">Places</a>
+                    <a href="earthday.html" class="text-sm font-semibold hover:text-[#2E7D32] transition-colors">Gallery</a>
+                    <a href="contact.html" class="text-sm font-semibold hover:text-[#2E7D32] transition-colors">Contact</a>
+                </div>
+                <a href="earthday.html" class="pointer-events-auto inline-block rounded-full bg-[#2E7D32] px-6 py-2 font-semibold text-white shadow-lg shadow-green-900/20 transition-all hover:-translate-y-0.5 hover:bg-[#1b4b1e]">
+                    Explore Now 🗺️
+                </a>
+            </div>
+        </nav>
+
+        <header class="relative flex min-h-screen items-center justify-center pt-24">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1691724214916-5e01d4a7fd34?w=1600&h=1080&q=80&auto=format&fit=crop" alt="Panoramic desert landscape in Mauritania" class="h-full w-full object-cover object-center">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 mx-auto max-w-4xl px-6 text-center reveal">
+                <span class="pointer-events-auto mb-6 inline-block rounded-full border border-[#2E7D32]/20 bg-[#A5D6A7]/80 px-3 py-1 text-sm font-bold tracking-wide text-[#2E7D32] backdrop-blur-sm">
+                    EXPLORE THE LAND
+                </span>
+                <h1 class="mb-6 text-5xl font-bold leading-tight text-[#2E7D32] drop-shadow-sm md:text-7xl lg:text-8xl">
+                    Discover the Richness of <br><span class="italic text-[#6D4C41]">Mauritania</span>
+                </h1>
+                <!-- Hidden note kept in code at user's request:
+                     A land of ancient traditions, vast deserts, and vibrant culture.
+                     Mauritania invites you to explore its unique beauty.
+                -->
+                <div class="flex flex-col justify-center gap-4 pointer-events-auto sm:flex-row">
+                    <a href="places.html" class="group flex items-center justify-center gap-2 rounded-full bg-[#2E7D32] px-8 py-4 text-lg font-semibold text-white shadow-xl shadow-green-900/20 transition-colors hover:bg-[#1b4b1e]">
+                        Start Your Adventure
+                        <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="earthday.html" class="rounded-full border-2 border-[#2E7D32] bg-white/70 px-8 py-4 text-lg font-semibold text-[#2E7D32] backdrop-blur-sm transition-colors hover:bg-[#F1F8E9]">
+                        View More Pictures
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="relative z-10 bg-[#F1F8E9] px-6 py-24">
+            <div class="mx-auto max-w-6xl">
+                <div class="grid items-center gap-16 lg:grid-cols-2">
+                    <div class="reveal">
+                        <h2 class="mb-6 text-4xl font-bold text-[#2E7D32] md:text-5xl">Mauritania: A Land of Contrasts.</h2>
+                        <p class="mb-6 text-lg leading-relaxed">
+                            Nestled between the Sahara and the Atlantic, Mauritania blends rolling dunes, rocky
+                            plateaus, coastal life, and deep cultural traditions. It is a place where nature shapes
+                            everyday life.
+                        </p>
+                        <p class="mb-8 text-lg leading-relaxed">
+                            This multi-page website keeps the original visual style while making the information easier
+                            to present in class. You can now move page by page through the country's places, pictures,
+                            and contact details.
+                        </p>
+                        <a href="places.html" class="pointer-events-auto inline-flex items-center gap-2 border-b-2 border-[#A5D6A7] pb-1 font-bold text-[#2E7D32] transition-colors hover:border-[#2E7D32]">
+                            Learn More
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="pointer-events-auto reveal delay-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Mauritania_landscape1.jpg" alt="Mauritanian rocky landscape" class="mb-8 h-[500px] w-full rounded-3xl object-cover shadow-2xl">
+                        <h3 class="mb-4 text-2xl font-bold text-[#2E7D32]">Journey Through Sand, Stone, and Tradition</h3>
+                        <p class="text-lg leading-relaxed text-[#6D4C41]">
+                            Mauritania is known for places such as Chinguetti and the Adrar region, where history,
+                            scholarship, travel, and desert culture all meet in one unforgettable setting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="relative z-10 overflow-hidden bg-[#2E7D32] px-6 py-24 text-[#F1F8E9]">
+            <div class="absolute right-0 top-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 h-96 w-96 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#4FC3F7]/10 blur-3xl"></div>
+            <div class="relative z-10 mx-auto max-w-6xl">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="mb-4 text-4xl font-bold text-white md:text-5xl">Mauritania at a Glance</h2>
+                    <p class="mx-auto max-w-2xl text-xl text-[#A5D6A7]">Key facts that make this country interesting to study and present.</p>
+                </div>
+                <div class="grid gap-8 md:grid-cols-3">
+                    <div class="pointer-events-auto reveal rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#A5D6A7]/20 text-[#A5D6A7]">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C7.268 0 3.5 3.768 3.5 8.5c0 5.25 8.5 15.5 8.5 15.5S20.5 13.75 20.5 8.5C20.5 3.768 16.732 0 12 0zM12 12.5c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="counter mb-2 text-5xl font-bold text-white" data-target="1">0</h3>
+                        <p class="mb-2 text-xl font-semibold text-[#A5D6A7]">Million sq km</p>
+                        <p class="text-sm text-white/70">A huge landscape stretching from desert regions to the Atlantic coast.</p>
+                    </div>
+                    <div class="pointer-events-auto reveal delay-100 rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#4FC3F7]/20 text-[#4FC3F7]">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2.2 19.5h19.6L12 3.5 2.2 19.5z"></path>
+                            </svg>
+                        </div>
+                        <div class="mb-2 flex items-end">
+                            <h3 class="counter text-5xl font-bold text-white" data-target="90">0</h3>
+                            <span class="mb-1 ml-1 text-3xl font-bold text-white">%</span>
+                        </div>
+                        <p class="mb-2 text-xl font-semibold text-[#4FC3F7]">Desert Cover</p>
+                        <p class="text-sm text-white/70">Most of the country is part of the Sahara Desert, which shapes its beauty and climate.</p>
+                    </div>
+                    <div class="pointer-events-auto reveal delay-200 rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFCA28]/20 text-[#FFCA28]">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 21H4c-1.1 0-2-.9-2-2v-3h20v3c0 1.1-.9 2-2 2zm0-8H4V5h16v8zm-5-8H9v2h6V5z"></path>
+                            </svg>
+                        </div>
+                        <div class="mb-2 flex items-end">
+                            <h3 class="counter text-5xl font-bold text-white" data-target="4">0</h3>
+                            <span class="mb-1 ml-1 text-3xl font-bold text-white">M</span>
+                        </div>
+                        <p class="mb-2 text-xl font-semibold text-[#FFCA28]">Population</p>
+                        <p class="text-sm text-white/70">Mauritania is home to communities with rich Arab-Berber and sub-Saharan African heritage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative z-10 bg-white px-6 py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="mb-4 text-4xl font-bold text-[#2E7D32] md:text-5xl">Mauritania Environmental Trends</h2>
+                    <p class="mx-auto max-w-3xl text-lg text-[#6D4C41]">
+                        These charts show realistic mock data about climate, desert growth, rainfall, plastic waste,
+                        and forest recovery in Mauritania.
+                    </p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2 pointer-events-auto">
+                    <div class="chart-panel reveal">
+                        <div class="chart-wrap">
+                            <canvas id="tempChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-panel reveal delay-100">
+                        <div class="chart-wrap">
+                            <canvas id="desertChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-panel reveal delay-200">
+                        <div class="chart-wrap">
+                            <canvas id="rainfallChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-panel reveal delay-300">
+                        <div class="chart-wrap">
+                            <canvas id="plasticChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-panel reveal md:col-span-2">
+                        <div class="chart-wrap chart-wrap-wide">
+                            <canvas id="forestChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative z-10 bg-[#F1F8E9] px-6 py-24">
+            <div class="mx-auto max-w-6xl">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="mb-4 text-4xl font-bold text-[#2E7D32] md:text-5xl">Why Mauritania Stands Out</h2>
+                    <p class="mx-auto max-w-2xl text-lg">From history to hospitality, these are the parts of Mauritania that make a strong class presentation.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="pointer-events-auto group reveal rounded-3xl border border-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A5D6A7] hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F1F8E9] text-[#2E7D32] transition-transform group-hover:scale-110">
+                            <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2.2 19.5h19.6L12 3.5 2.2 19.5z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="mb-3 text-xl font-bold text-[#2E7D32]">Explore the Sahara</h4>
+                        <p class="text-sm text-[#6D4C41]/80">Golden dunes, rocky plateaus, and wide skies make Mauritania visually unforgettable.</p>
+                    </div>
+                    <div class="pointer-events-auto group reveal delay-100 rounded-3xl border border-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A5D6A7] hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F1F8E9] text-[#2E7D32] transition-transform group-hover:scale-110">
+                            <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 7H4c-1.1 0-2 .9-2 2v10h20V9c0-1.1-.9-2-2-2zM4 19v-8h6v8H4zm8 0v-8h6v8h-6zM4 5h16V3H4v2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="mb-3 text-xl font-bold text-[#2E7D32]">Visit Historic Cities</h4>
+                        <p class="text-sm text-[#6D4C41]/80">Ancient places like Chinguetti connect Mauritania to education, trade, and desert history.</p>
+                    </div>
+                    <div class="pointer-events-auto group reveal delay-200 rounded-3xl border border-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A5D6A7] hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F1F8E9] text-[#2E7D32] transition-transform group-hover:scale-110">
+                            <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 10.99C22 5.04 17.52 0 12 0 6.48 0 2 5.04 2 10.99c0 4.67 3.01 8.65 7.21 10.15L12 24l2.79-2.86c4.2-1.5 7.21-5.48 7.21-10.15zM12 18c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="mb-3 text-xl font-bold text-[#2E7D32]">Discover Coastal Life</h4>
+                        <p class="text-sm text-[#6D4C41]/80">The Atlantic side of Mauritania adds fishing culture, marine life, and another side of the country.</p>
+                    </div>
+                    <div class="pointer-events-auto group reveal delay-300 rounded-3xl border border-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A5D6A7] hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F1F8E9] text-[#2E7D32] transition-transform group-hover:scale-110">
+                            <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="mb-3 text-xl font-bold text-[#2E7D32]">Immerse in Culture</h4>
+                        <p class="text-sm text-[#6D4C41]/80">Tea, music, hospitality, and tradition give your presentation a human and cultural side.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative z-10 bg-white px-6 py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="mb-4 text-4xl font-bold text-[#2E7D32] md:text-5xl">Mauritania's Diverse Beauty</h2>
+                    <p class="mx-auto max-w-2xl text-lg">More pictures were added so your website feels fuller and more visual for class.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 pointer-events-auto">
+                    <div class="gallery-card reveal relative h-64 overflow-hidden rounded-2xl lg:h-80">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Sahara_Desert_Mauritania.jpg" alt="Sahara desert near Atar in Mauritania" class="h-full w-full object-cover">
+                    </div>
+                    <div class="gallery-card reveal delay-100 relative h-64 overflow-hidden rounded-2xl lg:col-span-2 lg:h-80">
+                        <img src="https://images.unsplash.com/photo-1691724214916-5e01d4a7fd34?w=1200&h=800&q=80&auto=format&fit=crop" alt="Wide dunes in Mauritania" class="h-full w-full object-cover">
+                    </div>
+                    <div class="gallery-card reveal delay-200 relative h-64 overflow-hidden rounded-2xl lg:col-span-2 lg:h-80">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Mauritania_landscape1.jpg" alt="Rocky landscape in Mauritania" class="h-full w-full object-cover">
+                    </div>
+                    <div class="gallery-card reveal delay-300 relative h-64 overflow-hidden rounded-2xl lg:h-80">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/The_Mauritania_tea.jpg" alt="Mauritanian tea" class="h-full w-full object-cover">
+                    </div>
+                </div>
+                <div class="mt-10 text-center reveal">
+                    <a href="earthday.html" class="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#2E7D32] px-8 py-4 font-semibold text-white shadow-xl shadow-green-900/20 transition-colors hover:bg-[#1b4b1e]">
+                        Open the full gallery
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="relative z-10 mt-auto bg-[#1b4b1e] px-6 py-20 text-center">
+            <div class="mx-auto max-w-3xl reveal">
+                <h2 class="mb-6 text-4xl font-bold text-white serif-font md:text-5xl">Ready to Explore Mauritania?</h2>
+                <p class="mb-10 text-lg text-[#A5D6A7]">Move through the pages to show places, pictures, and contact details during your presentation.</p>
+                <div class="pointer-events-auto flex flex-col justify-center gap-4 sm:flex-row">
+                    <a href="places.html" class="transform rounded-full bg-white px-8 py-4 text-lg font-bold text-[#2E7D32] shadow-xl transition-colors duration-300 hover:-translate-y-1 hover:bg-[#F1F8E9]">View Places</a>
+                    <a href="contact.html" class="rounded-full border-2 border-[#A5D6A7] bg-transparent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-[#A5D6A7]/10">Contact Page</a>
+                </div>
+                <div class="mt-16 border-t border-white/20 pt-8 text-sm text-[#A5D6A7]/60">
+                    <p>&copy; 2026 Discover Mauritania classroom project.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('natureCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 150 };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.density = (Math.random() * 30) + 1;
+                const colors = ['rgba(165, 214, 167, 0.4)', 'rgba(46, 125, 50, 0.2)', 'rgba(109, 76, 65, 0.15)'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = -Math.random() * 0.5 - 0.1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.y < 0) {
+                    this.y = canvas.height;
+                    this.x = Math.random() * canvas.width;
+                }
+
+                if (this.x > canvas.width || this.x < 0) {
+                    this.speedX *= -1;
+                }
+
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy) || 1;
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const maxDistance = mouse.radius;
+                    const force = (maxDistance - distance) / maxDistance;
+                    const directionX = forceDirectionX * force * this.density;
+                    const directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    }
+                }
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < numberOfParticles; i += 1) {
+                particles.push(new Particle());
+            }
+        }
+
+        initParticles();
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i += 1) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        animateCanvas();
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        const counters = document.querySelectorAll('.counter');
+        let hasCounted = false;
+        const statsSection = document.getElementById('stats');
+
+        if (statsSection) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasCounted) {
+                    hasCounted = true;
+                    counters.forEach((counter) => {
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+
+                        updateCounter();
+                    });
+                }
+            }, { threshold: 0.5 });
+
+            counterObserver.observe(statsSection);
+        }
+
+        if (window.Chart) {
+            const years2000to2025 = [
+                2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+                2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+                2020, 2021, 2022, 2023, 2024, 2025
+            ];
+
+            const commonOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#6D4C41',
+                            font: {
+                                family: 'Outfit',
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(27, 75, 30, 0.92)',
+                        titleColor: '#ffffff',
+                        bodyColor: '#F1F8E9',
+                        cornerRadius: 10,
+                        padding: 10
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#6D4C41',
+                            maxRotation: 45,
+                            minRotation: 45
+                        },
+                        grid: {
+                            color: 'rgba(109, 76, 65, 0.08)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#6D4C41'
+                        },
+                        grid: {
+                            color: 'rgba(109, 76, 65, 0.08)'
+                        }
+                    }
+                }
+            };
+
+            new Chart(document.getElementById('tempChart'), {
+                type: 'line',
+                data: {
+                    labels: years2000to2025,
+                    datasets: [{
+                        label: 'Rising Temperatures in Mauritania',
+                        data: [
+                            28.1, 28.2, 28.1, 28.3, 28.4, 28.5, 28.4, 28.6, 28.7, 28.8,
+                            28.9, 29.0, 29.1, 29.0, 29.2, 29.3, 29.4, 29.5, 29.6, 29.6,
+                            29.7, 29.8, 29.9, 30.0, 30.1, 30.2
+                        ],
+                        borderColor: '#D97706',
+                        backgroundColor: 'rgba(217, 119, 6, 0.16)',
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 3,
+                        pointHoverRadius: 5,
+                        pointBackgroundColor: '#D97706',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    ...commonOptions,
+                    plugins: {
+                        ...commonOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Rising Temperatures in Mauritania',
+                            color: '#2E7D32',
+                            font: {
+                                family: 'Playfair Display',
+                                size: 20,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...commonOptions.scales,
+                        y: {
+                            ...commonOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Average Temperature (°C)',
+                                color: '#2E7D32'
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('desertChart'), {
+                type: 'line',
+                data: {
+                    labels: years2000to2025,
+                    datasets: [{
+                        label: 'Desert Expansion Over Time',
+                        data: [
+                            89.6, 89.7, 89.8, 89.9, 90.0, 90.1, 90.2, 90.3, 90.4, 90.5,
+                            90.6, 90.7, 90.8, 90.9, 91.0, 91.1, 91.2, 91.3, 91.4, 91.5,
+                            91.6, 91.7, 91.8, 91.9, 92.0, 92.1
+                        ],
+                        borderColor: '#8B5E34',
+                        backgroundColor: 'rgba(139, 94, 52, 0.14)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 2.5,
+                        pointHoverRadius: 4.5,
+                        pointBackgroundColor: '#8B5E34',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    ...commonOptions,
+                    plugins: {
+                        ...commonOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Desert Expansion Over Time',
+                            color: '#2E7D32',
+                            font: {
+                                family: 'Playfair Display',
+                                size: 20,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...commonOptions.scales,
+                        y: {
+                            ...commonOptions.scales.y,
+                            min: 89,
+                            max: 93,
+                            title: {
+                                display: true,
+                                text: 'Desert Coverage (%)',
+                                color: '#2E7D32'
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('rainfallChart'), {
+                type: 'bar',
+                data: {
+                    labels: [2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2025],
+                    datasets: [{
+                        label: 'Rainfall Trends in Mauritania',
+                        data: [128, 123, 119, 121, 114, 109, 111, 104, 99, 96, 101, 93, 89],
+                        backgroundColor: [
+                            '#5FA8D3', '#5AA4CF', '#559FCC', '#509BC8', '#4B97C4', '#4692C0',
+                            '#418EBC', '#3C89B8', '#3785B4', '#3280B0', '#2D7CAC', '#2877A8', '#2373A4'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    ...commonOptions,
+                    plugins: {
+                        ...commonOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Rainfall Trends in Mauritania',
+                            color: '#2E7D32',
+                            font: {
+                                family: 'Playfair Display',
+                                size: 20,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...commonOptions.scales,
+                        y: {
+                            ...commonOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Annual Rainfall (mm)',
+                                color: '#2E7D32'
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('plasticChart'), {
+                type: 'bar',
+                data: {
+                    labels: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+                    datasets: [{
+                        label: 'Coastal Plastic Waste Impact',
+                        data: [12, 13, 15, 16, 18, 20, 22, 24, 27, 29, 31, 34, 36, 39, 41, 44],
+                        backgroundColor: '#EF4444',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    ...commonOptions,
+                    plugins: {
+                        ...commonOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Coastal Plastic Waste Impact',
+                            color: '#2E7D32',
+                            font: {
+                                family: 'Playfair Display',
+                                size: 20,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...commonOptions.scales,
+                        y: {
+                            ...commonOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Waste Index',
+                                color: '#2E7D32'
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('forestChart'), {
+                type: 'bar',
+                data: {
+                    labels: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+                    datasets: [
+                        {
+                            label: 'Deforestation',
+                            data: [18, 19, 21, 22, 23, 25, 26, 28, 29, 31, 32],
+                            backgroundColor: '#7F1D1D',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Reforestation',
+                            data: [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9],
+                            backgroundColor: '#22C55E',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    ...commonOptions,
+                    plugins: {
+                        ...commonOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Forests: Loss vs Recovery',
+                            color: '#2E7D32',
+                            font: {
+                                family: 'Playfair Display',
+                                size: 20,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...commonOptions.scales,
+                        y: {
+                            ...commonOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Area Change (thousand hectares)',
+                                color: '#2E7D32'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+    </script>
+</body>
+</html>
